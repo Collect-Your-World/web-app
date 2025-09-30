@@ -1,0 +1,19 @@
+{
+  "name": "@collexworld/assets",
+  "version": "1.0.0",
+  "description": "Collexworld assets",
+  "exports": {
+    "./fonts.css": "./fonts.css",
+    "./global.css": "./global.css",
+    "./tailwind.base.config": "./tailwind.base.config.ts",
+    "./postcss.base.config": "./postcss.base.config.mjs"
+  },
+  "scripts": {},
+  "author": "collexworld Devs",
+  "license": "ISC",
+  "peerDependencies": {
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.0",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

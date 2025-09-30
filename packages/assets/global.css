@@ -1,0 +1,210 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --background-light: 210 20% 98%; /* #F9FAFB */
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 10% 44%; /* #68707C */
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --button-bg: 300 20% 99%;
+    --button-bg-hover: 285 14% 94%;
+    --main-green: 97 100% 37%; /* #4BBE00 */
+    --gold: 46 63% 48%; /* #C9A52D */
+    --gold-light: 46 100% 95%; /* #FFF9E5 */
+
+    /* Buck Brand Colors */
+    --buck-primary: 97 100% 37%; /* #4BBE00 */
+    --buck-secondary: 0 0% 100%; /* white */
+    --buck-text-light: 238 22% 95%; /* #f1ffe8 */
+    --buck-text-dark: 210 11% 4%; /* #0d0d0d */
+    --buck-text-muted: 215 10% 44%; /* #68707c */
+    --buck-border: 210 10% 90%; /* #e5e5e5 */
+
+    /* Buck Component Sizes */
+    --buck-form-width: 25.125rem; /* 402px max width */
+    --buck-form-min-width: 20rem; /* 320px min width */
+    --buck-button-height: 3.4375rem; /* 55px min height */
+    --buck-button-width: 20.125rem; /* 322px max width */
+
+    /* Buck Spacing */
+    --buck-form-padding: 1.5rem; /* 24px base */
+    --buck-form-gap: 1rem; /* 16px base */
+
+    /* Buck Layout */
+    --buck-page-max-width: 100%;
+    --buck-page-min-height: 100vh;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --background-light: 210 20% 98%; /* #F9FAFB */
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%; /* #68707C */
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --button-bg: 230 11.63% 8.43%;
+    --button-bg-hover: 230 11.63% 12%;
+    --main-green: 97 100% 37%; /* #4BBE00 */
+    --gold: 46 63% 48%; /* #C9A52D */
+    --gold-light: 46 100% 95%; /* #FFF9E5 */
+
+    /* Buck Logo Variables - Dark Mode */
+    --buck-text-logo-fill: 0 0% 100%; /* white in dark mode too */
+    --buck-text-logo-width: 156;
+    --buck-text-logo-height: 51;
+    --buck-text-logo-scale: 1;
+
+    /* Buck Brand Colors - Dark Mode */
+    --buck-primary: 97 100% 37%; /* #4BBE00 - same in dark */
+    --buck-secondary: 97 100% 97%; /* #F1FFE8 */
+    --buck-text-light: 238 22% 95%; /* #f1ffe8 */
+    --buck-text-dark: 210 20% 98%; /* lighter for dark mode */
+    --buck-text-muted: 217.9 10.6% 64.9%; /* muted foreground */
+    --buck-border: 215 27.9% 16.9%; /* dark border */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Typography Utilities for Fractul */
+  .font-hairline {
+    font-weight: 100;
+  }
+  .font-thin {
+    font-weight: 200;
+  }
+  .font-extralight {
+    font-weight: 300;
+  }
+  .font-light {
+    font-weight: 300;
+  }
+  .font-normal {
+    font-weight: 400;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+  .font-bold {
+    font-weight: 700;
+  }
+  .font-extrabold {
+    font-weight: 800;
+  }
+  .font-black {
+    font-weight: 900;
+  }
+  .font-heavy {
+    font-weight: 900;
+  }
+
+  /* Font Family Utilities */
+  .font-fractul {
+    font-family: 'Fractul', system-ui, sans-serif;
+  }
+  .font-bebas {
+    font-family: 'Bebas Neue', system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: 'BLMelodyMono', ui-monospace, monospace;
+  }
+
+  /* Typography Scale - Updated for new fonts */
+  .text-hero {
+    @apply font-bebas text-6xl md:text-7xl lg:text-8xl;
+    letter-spacing: -0.02em;
+  }
+  .text-display {
+    @apply font-fractul text-4xl font-black md:text-5xl lg:text-6xl;
+    letter-spacing: -0.01em;
+  }
+  .text-h1 {
+    @apply font-fractul text-3xl font-bold md:text-4xl lg:text-5xl;
+  }
+  .text-h2 {
+    @apply font-fractul text-2xl font-semibold md:text-3xl lg:text-4xl;
+  }
+  .text-h3 {
+    @apply font-fractul text-xl font-medium md:text-2xl lg:text-3xl;
+  }
+  .text-body {
+    @apply font-fractul text-base font-normal md:text-lg;
+  }
+  .text-caption {
+    @apply font-fractul text-sm font-light;
+  }
+  .text-label {
+    @apply font-fractul text-xs font-medium;
+  }
+  .text-mono-button {
+    @apply font-mono text-sm;
+    letter-spacing: -0.14px;
+  }
+}
