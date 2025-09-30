@@ -1,0 +1,40 @@
+{
+  "name": "web-platform",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "web-app": "pnpm --filter=web-app",
+    "web-app:dev": "pnpm --filter=web-app dev",
+    "web-app:build": "pnpm --filter=web-app build",
+    "web-app:lint": "pnpm --filter=web-app lint",
+    "web-app:test": "pnpm --filter=web-app test",
+    "assets:sync": "cp -R packages/assets/public/fonts* apps/web-app/public/",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "pre-commit": "lint-staged",
+    "pre-push": "pnpm lint",
+    "postinstall": "npx husky install && pnpm run assets:sync",
+    "prepare": "husky install",
+    "clean": "rm -rf node_modules && rm -rf .pnpm-store && rm -rf **/node_modules && pnpm store prune"
+  },
+  "repository": "https://github.com/web-platform.git",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.0",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "pino-pretty": "^13.1.1",
+    "turbo": "^2.5.4"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}
