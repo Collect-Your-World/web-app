@@ -12,14 +12,12 @@
     "web-app:build": "pnpm --filter=web-app build",
     "web-app:lint": "pnpm --filter=web-app lint",
     "web-app:test": "pnpm --filter=web-app test",
-    "assets:sync": "cp -R packages/assets/public/fonts* apps/web-app/public/",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "pre-commit": "lint-staged",
     "pre-push": "pnpm lint",
-    "postinstall": "npx husky install && pnpm run assets:sync",
     "prepare": "husky install",
     "clean": "rm -rf node_modules && rm -rf .pnpm-store && rm -rf **/node_modules && pnpm store prune"
   },
@@ -35,6 +33,8 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1"
   }
 }
