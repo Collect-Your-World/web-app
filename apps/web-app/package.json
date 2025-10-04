@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:analyze": "ANALYZE=true next dev --turbopack",
+    "predev": "mkdir -p public/fonts && cp -R ../../packages/assets/public/fonts/Fractul public/fonts/",
+    "prebuild": "mkdir -p public/fonts && cp -R ../../packages/assets/public/fonts/Fractul public/fonts/",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
